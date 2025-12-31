@@ -1,0 +1,22 @@
+# Configuración de build.yaml para code generation
+# Este archivo especifica cómo build_runner debe generar código
+
+targets:
+  $default:
+    builders:
+      # Configuración para Riverpod code generation
+      riverpod_generator:
+        generate_for:
+          - lib/**/*.dart
+        options:
+          # Genera archivos .g.dart para los providers
+          riverpod_debug: true
+      
+      # Configuración para Drift code generation
+      drift_dev:
+        generate_for:
+          - lib/**/*.dart
+        options:
+          # Genera código SQL type-safe
+          sqlite_modules: []
+          generate_connect_constructor: true
